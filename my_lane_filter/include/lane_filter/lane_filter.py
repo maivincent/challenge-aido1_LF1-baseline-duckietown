@@ -71,7 +71,7 @@ class LaneFilterHistogram(Configurable, LaneFilterInterface):
 
 
         self.ml_trust = 1
-        self.bl_trust = 0.5
+        self.bl_trust = 1
         self.beliefArray = []
         self.range_arr = np.zeros(self.curvature_res + 1)
         for i in range(self.curvature_res + 1):

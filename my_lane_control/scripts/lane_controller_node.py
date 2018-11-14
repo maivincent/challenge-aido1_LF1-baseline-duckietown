@@ -15,10 +15,10 @@ class lane_controller(object):
         self.last_ms = None
         self.pub_counter = 0
 
-        self.gain_factor = 10
+        self.gain_factor = 8
         self.d_offset_value = 0.12
-        self.k_d_value = -4.5
-        self.k_theta_value = -1.1
+        self.k_d_value = -4
+        self.k_theta_value = -1
 
         self.velocity_to_m_per_s = 0.67
         self.omega_to_rad_per_s = 0.45 * 2 * math.pi
