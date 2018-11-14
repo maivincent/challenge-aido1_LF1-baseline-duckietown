@@ -70,7 +70,7 @@ class LaneFilterHistogram(Configurable, LaneFilterInterface):
                      self.phi_min:(self.phi_max + self.delta_phi):self.delta_phi]
 
 
-        self.ml_trust = 1.2
+        self.ml_trust = 0.8
         self.beliefArray = []
         self.range_arr = np.zeros(self.curvature_res + 1)
         for i in range(self.curvature_res + 1):
