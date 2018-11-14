@@ -22,11 +22,19 @@ COPY lf_slim.launch ./
 # COPY dt_dependent_node custom_ws/src/dt_dependent_node
 # RUN chmod +x custom_ws/src/dt_dependent_node/dt_dependent_node.py
 
+COPY my_lane_control custom_ws/src/my_lane_control
+COPY my_lane_filter custom_ws/src/my_lane_filter
+COPY my_line_detector custom_ws/src/my_line_detector
+
+RUN chmod +x custom_ws/src/my_lane_control/scripts/lane_controller_node.py
+RUN chmod +x custom_ws/src/my_lane_filter/src/lane_filter_node.py
+RUN chmod +x custom_ws/src/my_line_detector/src/line_detector_node.py
+
 ## Do not change the below line! This ensures that your workspace is overlayed on top of the Duckietown stack!  
 ## MAKE sure this line is present in the build: This workspace overlays: /home/software/catkin_ws/devel;/opt/ros/kinetic
-# RUN /bin/bash -c "source /home/software/catkin_ws/devel/setup.bash && catkin_init_workspace && cd ../.."
-# RUN /bin/bash -c "source /home/software/catkin_ws/devel/setup.bash && catkin_make -j -C custom_ws/"
-# RUN echo "source custom_ws/devel/setup.bash" >> ~/.bashrc
+RUN /bin/bash -c "source /home/software/catkin_ws/devel/setup.bash && catkin_init_workspace && cd ../.."
+RUN /bin/bash -c "source /home/software/catkin_ws/devel/setup.bash && catkin_make -j -C custom_ws/"
+RUN echo "source custom_ws/devel/setup.bash" >> ~/.bashrc
 
 #### END CUSTOM CATKIN_WS ####
 
