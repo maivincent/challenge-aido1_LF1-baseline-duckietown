@@ -70,7 +70,8 @@ class LaneFilterHistogram(Configurable, LaneFilterInterface):
                      self.phi_min:(self.phi_max + self.delta_phi):self.delta_phi]
 
 
-        self.ml_trust = 0.8
+        self.ml_trust = 1
+        self.bl_trust = 0.8
         self.beliefArray = []
         self.range_arr = np.zeros(self.curvature_res + 1)
         for i in range(self.curvature_res + 1):
@@ -232,7 +233,7 @@ class LaneFilterHistogram(Configurable, LaneFilterInterface):
             measurement_likelihood = self.generate_measurement_likelihood(segmentsRangeArray[i])
 
             if measurement_likelihood is not None:
-                self.beliefArray[i] = np.multiply(self.beliefArray[i], np.power(measurement_likelihood, self.ml_trust))
+                self.beliefArray[i] = np.multiply(np.power(self.beliefArray[i], self.bl_trust), np.power(measurement_likelihood, self.ml_trust))
                 if np.sum(self.beliefArray[i]) == 0:
                     self.beliefArray[i] = measurement_likelihood
                 else:
