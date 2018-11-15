@@ -16,7 +16,7 @@ class lane_controller(object):
         self.pub_counter = 0
 
         self.gain_factor = 6
-        self.d_offset_value = 0.08
+        self.d_offset_value = 0.07
         self.k_d_value = -2
         self.k_theta_value = -0.5
 
